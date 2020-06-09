@@ -45,6 +45,6 @@ img{
     max-height: 350px;
 }
 .card{
-    height: 35rem;
+    height: 38rem;
 }
 </style>

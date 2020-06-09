@@ -6459,7 +6459,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nimg[data-v-19921286]{\r\n    width: 100%;\r\n    max-height: 350px;\n}\n.card[data-v-19921286]{\r\n    height: 35rem;\n}\r\n", ""]);
+exports.push([module.i, "\nimg[data-v-19921286]{\r\n    width: 100%;\r\n    max-height: 350px;\n}\n.card[data-v-19921286]{\r\n    height: 38rem;\n}\r\n", ""]);
 
 // exports
 
