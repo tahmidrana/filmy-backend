@@ -9,6 +9,11 @@ use App\Http\Requests\StoreFilm;
 
 class FilmController extends Controller
 {
+    public function __construct()
+    {
+        //$this->middleware('auth')->except('index');;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -66,51 +71,14 @@ class FilmController extends Controller
      * @param  \App\Models\Film  $film
      * @return \Illuminate\Http\Response
      */
-    public function show(Film $film)
+    public function show($slug, $id)
     {
-        $film->load('genres');
+        $film = Film::with('genres', 'comments.user')->find($id);
         return view('films.show', compact('film'));
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Film  $film
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Film $film)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Film  $film
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Film $film)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Film  $film
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Film $film)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Film  $film
-     * @return \Illuminate\Http\Response
+     * Api for Getting all films
      */
     public function allFilms()
     {

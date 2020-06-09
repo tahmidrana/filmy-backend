@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-3">
+    <div class="col-md-4">
         <div class="card">
             <img :src="imageSrc" class="card-img-top" alt="">
             <div class="card-body">
@@ -24,7 +24,7 @@
                 return this.film.description.slice(0, 100) 
             },
             redirectUrl() {
-                return '/films/' + this.film.id
+                return '/films/' + this.film.slug + '/' + this.film.id
             }
         },
         filters: {
