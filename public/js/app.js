@@ -1989,11 +1989,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['film'],
   computed: {
     imageSrc: function imageSrc() {
-      return '/uploads/' + this.film.photo;
+      return this.film.photo;
     },
     description: function description() {
       return this.film.description.slice(0, 100) + " ...";
@@ -38218,7 +38220,7 @@ var render = function() {
           _c("ul", { staticClass: "pagination" }, [
             _c("li", { staticClass: "page-item" }, [
               _c(
-                "a",
+                "button",
                 {
                   staticClass: "page-link",
                   attrs: { disabled: !_vm.pagination.prev_page_url },
@@ -38245,7 +38247,7 @@ var render = function() {
             _vm._v(" "),
             _c("li", { staticClass: "page-item" }, [
               _c(
-                "a",
+                "button",
                 {
                   staticClass: "page-link",
                   attrs: { disabled: !_vm.pagination.next_page_url },
@@ -38291,7 +38293,7 @@ var render = function() {
     _c("div", { staticClass: "card" }, [
       _c("img", {
         staticClass: "card-img-top",
-        attrs: { src: _vm.imageSrc, alt: "" }
+        attrs: { src: _vm.imageSrc, alt: _vm.imageSrc }
       }),
       _vm._v(" "),
       _c(
@@ -38314,6 +38316,16 @@ var render = function() {
                 _vm._s(_vm._f("dateFormat")(_vm.film.release_date))
             )
           ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("small", [
+            _vm._v("Rating: " + _vm._s(_vm.film.rating) + " out of 5")
+          ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("small", [_vm._v("Country: " + _vm._s(_vm.film.country))]),
           _vm._v(" "),
           _c("br"),
           _vm._v(" "),

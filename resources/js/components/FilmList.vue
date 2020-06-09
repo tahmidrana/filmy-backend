@@ -5,9 +5,9 @@
         </div>
         <div class="row mt-4 ml-1">
             <ul class="pagination">
-                <li class="page-item"><a class="page-link" @click="getAllFilms(pagination.prev_page_url)" :disabled="!pagination.prev_page_url">Previous</a></li>
+                <li class="page-item"><button class="page-link" @click="getAllFilms(pagination.prev_page_url)" :disabled="!pagination.prev_page_url">Previous</button></li>
                 <li class="page-item"><a class="page-link" href="#">Page {{pagination.current_page}} of {{pagination.last_page}}</a></li>
-                <li class="page-item"><a class="page-link" @click="getAllFilms(pagination.next_page_url)" :disabled="!pagination.next_page_url">Next</a></li>
+                <li class="page-item"><button class="page-link" @click="getAllFilms(pagination.next_page_url)" :disabled="!pagination.next_page_url">Next</button></li>
             </ul>
         </div>
     </div>

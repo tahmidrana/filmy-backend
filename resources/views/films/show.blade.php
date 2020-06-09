@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
+@section('title', $film->name)
+
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-9">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $film->name }}</h5>
+                    <h5 class="card-title"><strong>{{ $film->name }}</strong></h5>
                     <p class="card-text">{{ $film->description }}</p>
                     <p><strong>Release Date: </strong> {{ \Carbon\Carbon::parse($film->release_date)->format('d M, Y') }} <br>
                     <strong>Rating: </strong> {{ $film->rating }} out of 5 <br>
@@ -50,7 +52,7 @@
         </div>
         <div class="col-md-3">
             <h3>Feature Image</h3>
-            <img src="/uploads/{{ $film->photo }}" alt="" style="width: 100%"/>
+            <img src="{{ $film->photo }}" alt="" style="width: 100%"/>
         </div>
     </div>
     <div class="row">

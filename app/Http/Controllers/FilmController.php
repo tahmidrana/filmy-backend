@@ -11,7 +11,7 @@ class FilmController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('index', 'allFilms', 'show');
+        //$this->middleware('auth')->except('index', 'allFilms', 'show');
     }
 
     /**
@@ -54,7 +54,7 @@ class FilmController extends Controller
         $film->rating = $request->rating;
         $film->ticket_price = $request->ticket_price;
         $film->country = $request->country;
-        $film->photo = $fileName;
+        $film->photo = '/uploads/' . $fileName;
         $film->save();
 
         $film->genres()->attach($request->genre);
@@ -82,7 +82,7 @@ class FilmController extends Controller
      */
     public function allFilms()
     {
-        $films = Film::with('genres')->paginate(3);
+        $films = Film::with('genres')->orderBy('id', 'desc')->paginate(3);
         return $films;
     }
 }
