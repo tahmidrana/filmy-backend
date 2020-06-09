@@ -1996,7 +1996,7 @@ __webpack_require__.r(__webpack_exports__);
       return '/uploads/' + this.film.photo;
     },
     description: function description() {
-      return this.film.description.slice(0, 100);
+      return this.film.description.slice(0, 100) + " ...";
     },
     redirectUrl: function redirectUrl() {
       return '/films/' + this.film.slug + '/' + this.film.id;
@@ -6457,7 +6457,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nimg[data-v-19921286]{\r\n    width: 100%;\r\n    max-height: 200px;\n}\r\n", ""]);
+exports.push([module.i, "\nimg[data-v-19921286]{\r\n    width: 100%;\r\n    max-height: 350px;\n}\n.card[data-v-19921286]{\r\n    height: 35rem;\n}\r\n", ""]);
 
 // exports
 
@@ -38214,7 +38214,7 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "row mt-4" }, [
+        _c("div", { staticClass: "row mt-4 ml-1" }, [
           _c("ul", { staticClass: "pagination" }, [
             _c("li", { staticClass: "page-item" }, [
               _c(
@@ -38287,7 +38287,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-md-3" }, [
+  return _c("div", { staticClass: "col-md-4" }, [
     _c("div", { staticClass: "card" }, [
       _c("img", {
         staticClass: "card-img-top",
@@ -38309,14 +38309,17 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("small", [
-            _vm._v(_vm._s(_vm._f("dateFormat")(_vm.film.release_date)))
+            _vm._v(
+              "Initial release: " +
+                _vm._s(_vm._f("dateFormat")(_vm.film.release_date))
+            )
           ]),
           _vm._v(" "),
           _c("br"),
           _vm._v(" "),
           _vm._l(_vm.film.genres, function(genre) {
             return _c("span", { key: genre.id, staticClass: "text-muted" }, [
-              _vm._v("#" + _vm._s(genre.title))
+              _vm._v("#" + _vm._s(genre.title) + " ")
             ])
           }),
           _vm._v(" \n        ")

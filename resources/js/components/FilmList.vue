@@ -3,7 +3,7 @@
         <div class="row">
             <film-tile v-for="film in films" :key="film.id" :film="film"></film-tile>
         </div>
-        <div class="row mt-4">
+        <div class="row mt-4 ml-1">
             <ul class="pagination">
                 <li class="page-item"><a class="page-link" @click="getAllFilms(pagination.prev_page_url)" :disabled="!pagination.prev_page_url">Previous</a></li>
                 <li class="page-item"><a class="page-link" href="#">Page {{pagination.current_page}} of {{pagination.last_page}}</a></li>

@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('allComments');
+    }
+
     public function allComments($id)
     {
         $comments = Comment::with('user')->where('film_id', $id)->orderBy('created_at', 'desc')->get();
