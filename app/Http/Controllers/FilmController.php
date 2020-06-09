@@ -53,7 +53,7 @@ class FilmController extends Controller
         $film->save();
 
         $film->genres()->attach($request->genre);
-        
+
         $request->session()->flash('message', 'Saved Successfully!'); 
         $request->session()->flash('alert-class', 'alert-success');
 
@@ -68,7 +68,8 @@ class FilmController extends Controller
      */
     public function show(Film $film)
     {
-        //
+        $film->load('genres');
+        return view('films.show', compact('film'));
     }
 
     /**

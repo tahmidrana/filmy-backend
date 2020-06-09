@@ -1,35 +1,32 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Film List Component</div>
-
-                    <div class="card-body">
-                        Film List
-                    </div>
-                </div>
-            </div>
+            <film-tile v-for="film in films" :key="film.id" :film="film"></film-tile>
         </div>
     </div>
 </template>
 
 <script>
+    import FilmTile from './FilmTile.vue'
     export default {
+        components: {
+            FilmTile
+        },
         data() {
             return {
+                filmData: Object,
                 films: []
             }
         },
         methods: {
-            async getAllFilms() {
-                const res = window.axios.get('/api/films');
-                //this.films = data
-                console.log(res.data)
+            getAllFilms() {
+                window.axios.get('/api/films').then(response => {
+                    this.filmData = response.data
+                    this.films = response.data.data
+                })
             }
         },
         created() {
-            console.log('Component mounted.')
             this.getAllFilms()
         }
     }
