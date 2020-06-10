@@ -6,7 +6,7 @@ use App\Models\Film;
 use Faker\Generator as Faker;
 
 $factory->define(Film::class, function (Faker $faker) {
-    $movies = ['Shirley', 'No Time to Die', 'Always Bad', 'Bloodshot', 'Avengers Endgame', 'parasite'];
+    $movies = ['Shirley', 'No Time to Die', 'Always Bad', 'Bloodshot', 'Avengers Endgame', 'Parasite'];
     $photos = ['shirley.jpeg', 'no-time-to-die.jpeg', 'bad.jpeg', 'bloodshot.jpg', 'avengers-endgame.jpeg', 'parasite.jpg'];
     $rand_int = rand(0,5);
 

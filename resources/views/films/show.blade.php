@@ -29,11 +29,15 @@
                 <h4>Comments</h4>
                 <div class="card">
                     <div class="card-header">
+                        @guest
+                            <span class="text-danger">Please login to comment</span>
+                        @else
                         <form action="{{ route('comments.store', ['film_id'=> $film->id]) }}" method="POST">
                             @csrf
                             <textarea name="comment_body" class="form-control" rows="2" placeholder="Write your comment" required></textarea>
                             <input type="submit" class="btn btn-primary btn-sm float-right mt-2" value="Comment">
                         </form>
+                        @endguest
                     </div>
                     @if($film->comments->count())
                     <div class="card-body">
